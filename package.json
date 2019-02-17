@@ -1,5 +1,5 @@
 {
-  "name": "crud",
+  "name": "back",
   "version": "1.0.0",
   "description": "Test back part of the restoration Web application",
   "main": "./src/app.js",
