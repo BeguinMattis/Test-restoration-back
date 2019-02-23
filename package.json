@@ -1,5 +1,5 @@
 {
-  "name": "back",
+  "name": "test-restoration-back",
   "version": "1.0.0",
   "description": "Test back part of the restoration Web application",
   "main": "./src/app.js",
@@ -12,6 +12,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/BeguinMattis/Test-restoration-back.git"
+  },
+  "engines": {
+    "node": "10.15.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
