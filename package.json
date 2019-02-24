@@ -14,7 +14,7 @@
     "url": "https://github.com/BeguinMattis/Test-restoration-back.git"
   },
   "engines": {
-    "node": "10.15.0"
+    "node": "10.x"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

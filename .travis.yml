@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - '10.15.0'
+  - '10'
 branches:
   only:
     - dev
