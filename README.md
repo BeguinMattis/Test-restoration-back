@@ -8,7 +8,7 @@
 
 [![Build Status](https://travis-ci.org/BeguinMattis/Test-restoration-back.svg?branch=dev)](https://travis-ci.org/BeguinMattis/Test-restoration-back)
 
-## The deployment URL of the web application is : [https://test-restoration-back.herokuapp.com/](https://test-restoration-back.herokuapp.com/ "Link")
+## The deployment URL of the back-end part is : [https://test-restoration-back.herokuapp.com/](https://test-restoration-back.herokuapp.com/ "Link")
 
 ## Features of the Web Application :
 
