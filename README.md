@@ -42,18 +42,18 @@
 
 - Configuring continuous integration on Travis
 - Configuring deployment on Heroku
+- Using a geography API
 
 ### Course session of April 23 :
 
 - Development of user authentication
-- Development of part of the CRUD
+- Development of part of the CRUD (= Users)
 
 ### Course session of Mai 23 :
 
 - Using an API to retrieve the list of restaurants
-- Using a geography API
 
 ### Course session of June 21 :
 
-- Development of the other part of the CRUD
+- Development of the other part of the CRUD (= Opinions, etc...)
 - Bonus according to the remaining time...
