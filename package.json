@@ -1,11 +1,27 @@
 {
-  "name": "crud",
+  "name": "test-restoration-back",
   "version": "1.0.0",
   "description": "Test back part of the restoration Web application",
   "main": "./src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/app.js",
+    "test": "mocha ./src/tests/*.spec.js --exit"
   },
   "author": "Mattis Beguin",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeguinMattis/Test-restoration-back.git"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.3"
+  }
 }
