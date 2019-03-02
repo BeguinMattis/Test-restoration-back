@@ -23,18 +23,18 @@
 
 - A front-end part
 - A back-end part for front-end part
-- An authentication API
-- A CRUD API
+- Maybe an authentication API
+- Maybe a CRUD API
 
 ## Technologies used :
 
 - Angular for the front-end part
-- Node.js for the back-end parts (= Back For Front, Authentication and CRUD)
+- Node.js for the back-end part(s)
 - mLab for the mongoDB database
 - Git / GitHub for code version management
 - Travis for continuous integration
 - Heroku for Web Application Deployment
-- Google Maps and Google Places as external APIs
+- Google Auth, Google Maps and Google Places as external APIs
 
 ## Schedule of work to be done :
 
@@ -56,4 +56,5 @@
 ### Course session of June 21 :
 
 - Development of the other part of the CRUD (= Opinions, etc...)
+- Adding CSS3 styles
 - Bonus according to the remaining time...
