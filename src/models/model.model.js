@@ -4,4 +4,8 @@ class Model {
     }
 }
 
-module.exports = { Model };
+const models = {
+    Model: Model
+};
+
+module.exports = models;
