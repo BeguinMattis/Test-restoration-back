@@ -5,7 +5,7 @@ class Model {
 }
 
 const models = {
-    Model: Model
+    model: Model
 };
 
 module.exports = models;
