@@ -2,7 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-require("./configurations/mongoose.config");
+const isInTest = typeof global.it === "function";
+
+if (!isInTest) {
+    require("./configurations/mongoose.config");
+}
 
 const routeRoutes = require("./routes/route.route");
 const authenticationRoutes = require("./routes/authentication.route");

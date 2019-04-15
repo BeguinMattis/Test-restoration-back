@@ -1,7 +1,7 @@
 const sinon = require("sinon");
 const chai = require("chai");
 const expect = chai.expect;
-const { Model } = require("../models/model.model");
+const Model = require("../models/model.model").model;
 const controller = require("../controllers/controller.controller");
 
 describe("Controller", () => {
