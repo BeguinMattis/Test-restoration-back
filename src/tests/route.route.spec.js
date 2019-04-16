@@ -30,7 +30,7 @@ describe("Route", () => {
             const response = new Model("value");
             controllerControllersStub.action.returns(response);
             chai.request(app)
-                .get("/route/path")
+                .get("/route/path/2")
                 .set("authorization", "Bearer " + token)
                 .end((err, res) => {
                     expect(res.status).to.equal(200);
