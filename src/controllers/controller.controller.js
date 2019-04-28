@@ -1,8 +1,12 @@
-const { Model } = require("../models/model.model");
+const Model = require("../models/model.model").model;
 
 const action = (req, res) => {
     const model = new Model("value");
     res.json(model);
 };
 
-module.exports = { action };
+const controllers = {
+    action: action
+};
+
+module.exports = controllers;
