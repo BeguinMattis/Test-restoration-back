@@ -10,6 +10,7 @@ if (!isInTest) {
 
 const routeRoutes = require("./routes/route.route");
 const authenticationRoutes = require("./routes/authentication.route");
+const opinionRoutes = require("./routes/opinion.route");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use("/route", routeRoutes);
 app.use("/authentication", authenticationRoutes);
+app.use("/opinion", opinionRoutes);
 
 app.use((req, res, next) => {
     res.status(404);
