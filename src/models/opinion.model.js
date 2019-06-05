@@ -1,42 +1,42 @@
 const mongoose = require("mongoose");
 
-const opinionSchema = new mongoose.Schema({
+const singleOpinionSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    opinion: {
+        type: String,
+        required: true
+    }
+});
+
+const globalOpinionSchema = new mongoose.Schema({
+    user_id: {
+        type: mongoose.Schema.ObjectId,
+        required: true
+    },
     place_id: {
         type: String,
         required: true
     },
-    starters: [{
-        name: {
-            type: String
-        },
-        opinion: {
-            type: String
-        },
+    starters: {
+        type: [singleOpinionSchema],
         required: false
-    }],
-    main_courses: [{
-        name: {
-            type: String
-        },
-        opinion: {
-            type: String
-        },
+    },
+    main_courses: {
+        type: [singleOpinionSchema],
         required: false
-    }],
-    desserts: [{
-        name: {
-            type: String
-        },
-        opinion: {
-            type: String
-        },
+    },
+    desserts: {
+        type: [singleOpinionSchema],
         required: false
-    }]
+    }
 }, {
-    collection: 'Opinion'
+    collection: "Opinion"
 });
 
-const opinionModel = mongoose.model('Opinion', opinionSchema);
+const opinionModel = mongoose.model("Opinion", globalOpinionSchema);
 
 const models = {
     opinion: opinionModel
