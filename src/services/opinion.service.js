@@ -1,56 +1,54 @@
-const CustomError = require("../models/custom-error.model").customError;
 const User = require("../models/user.model").user;
 const Opinion = require("../models/opinion.model").opinion;
+const CustomError = require("../models/custom-error.model").customError;
 
 const listOpinions = (userId) => {
     return new Promise((resolve, reject) => {
-        Opinion.find({"user_id": userId}, {"__v": 0}).then((opinions) => {
-            resolve(opinions);
+        User.findById(userId, {_id: 1}).populate("opinions", {__v: 0}).then((globalOpinions) => {
+            globalOpinions = globalOpinions.toObject();
+            delete globalOpinions.id;
+
+            globalOpinions.opinions.forEach((globalOpinion) => {
+                delete globalOpinion.user_id;
+            });
+
+            resolve(globalOpinions);
         }).catch((error) => {
             const customError = new CustomError(500, error);
             console.error("Error: " + customError.error.message);
             reject(customError);
         });
-    })
+    });
 };
 
-const addAttribute = (object, propertry, name, opinion) => {
-    if ((name) && (opinion)) {
-        object[propertry] = [{
-            name: name,
-            opinion: opinion
-        }];
-        console.log("ok");
-    } else {
-        object[propertry] = null;
-        console.log("pas ok");
-    }
+const checkSingleOpinions = (singleOpinions) => {
+    let singleOpinionsChecked = [];
+    singleOpinions.forEach((singleOpinion) => {
+        if ((singleOpinion.name) && (singleOpinion.opinion)) {
+            singleOpinionsChecked.push(singleOpinion);
+        }
+    });
 
-    return object;
+    return singleOpinionsChecked;
 };
 
-const addOpinion = (userId, data) => {
+const addOpinion = (userId, globalOpinion) => {
     return new Promise((resolve, reject) => {
         let opinion = new Opinion();
         opinion.user_id = userId;
-        opinion.place_id = "place_id";
-
-        console.log(data);
-
-        opinion = addAttribute(opinion, "starters", data.starterName, data.starterOpinion);
-        opinion = addAttribute(opinion, "main_courses", data.mainCourseName, data.mainCourseOpinion);
-        opinion = addAttribute(opinion, "desserts", data.dessertName, data.dessertOpinion);
+        opinion.place_id = globalOpinion.place_id;
+        opinion.starters = checkSingleOpinions(globalOpinion.starters);
+        opinion.main_courses = checkSingleOpinions(globalOpinion.main_courses);
+        opinion.desserts = checkSingleOpinions(globalOpinion.desserts);
 
         opinion.save().then(() => {
             resolve(true);
         }).catch((error) => {
-            console.error(error);
-
             const customError = new CustomError(500, error);
-            // console.error("Error: " + customError.error.message);
+            console.error("Error: " + customError.error.message);
             reject(customError);
         });
-    })
+    });
 };
 
 const services = {
