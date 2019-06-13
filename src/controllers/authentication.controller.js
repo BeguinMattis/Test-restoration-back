@@ -3,7 +3,7 @@ const authenticationServices = require("../services/authentication.service");
 const google = (req, res) => {
     let idToken = req.get("authorization");
 
-    if (!idToken) {
+    if (!(idToken)) {
         res.status(401);
         res.end();
     } else {

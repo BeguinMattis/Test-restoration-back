@@ -19,10 +19,23 @@ const userSchema = new mongoose.Schema({
         required: false
     }
 }, {
-    collection: 'User'
+    collection: "User",
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true
+    }
 });
 
-const userModel = mongoose.model('User', userSchema);
+userSchema.virtual('opinions', {
+    ref: 'Opinion',
+    localField: '_id',
+    foreignField: 'user_id',
+    justOne: false
+});
+
+const userModel = mongoose.model("User", userSchema);
 
 const models = {
     user: userModel
